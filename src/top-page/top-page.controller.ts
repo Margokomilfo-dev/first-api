@@ -12,9 +12,9 @@ export class TopPageController {
 
   }
 
-  @Get(":id")
-  async get(@Param('id') id: string) {
-    this.configService.get('TEST')
+  @Get("get/:alias")
+  async get(@Param('alias') alias: string) {
+    // this.configService.get('TEST')
   }
 
   @Delete(":id")

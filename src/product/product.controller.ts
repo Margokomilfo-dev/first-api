@@ -2,26 +2,26 @@ import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post } from "@ne
 import { ProductModule } from "./product.module";
 import { FindProductDto } from "./dto/find-product.dto";
 
-@Controller('product')
+@Controller("product")
 export class ProductController {
 
-  @Post('create')
-  async create(@Body() dto: Omit<ProductModule, '_id'>) {
+  @Post("create")
+  async create(@Body() dto: Omit<ProductModule, "_id">) {
 
   }
 
-  @Get(':id')
-  async get(@Param('id') id:string) {
+  @Get(":id")
+  async get(@Param("id") id: string) {
 
   }
 
-  @Delete(':id')
-  async delete(@Param('id') id:string) {
+  @Delete(":id")
+  async delete(@Param("id") id: string) {
 
   }
 
-  @Patch(':id') //PUT
-  async patch(@Param('id') id:string, @Body() dto: ProductModule){
+  @Patch(":id") //PUT
+  async patch(@Param("id") id: string, @Body() dto: ProductModule) {
 
   }
 
