@@ -40,6 +40,23 @@ describe('Review controller (e2e)', () => {
 				done()
 			})
 	});
+	it('/review/create (POST) - fail - message', async (done) => {
+		return request(app.getHttpServer())
+			.post('/review/create')
+			.send({ ...testDto, rating: 0 })
+			.expect(400) //201 всегда возвращает метод POST при удачном исполнении
+			.then((res: request.Response) => {
+				console.log(res.body);
+				done()
+			})
+	});
+
+	it('/review/create (POST) - fail', () => {
+		return request(app.getHttpServer())
+			.post('/review/create')
+			.send({ ...testDto, rating: 0 })
+			.expect(400) //400 всегда возвращает ValidatePipe если не соответсвует валидации (у нас 1-5 корректные данные)
+	});
 
 	it('/review/byProduct/:productId (GET) - success', async (done) => {
 		return request(app.getHttpServer())
